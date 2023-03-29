@@ -6,7 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    public function (){
-        return $this->belongsTo('');
-    }
+
+    protected $fillable = ['name', 'text', 'price', 'image_path'];
+
+    // public function (){
+    //     return $this->belongsTo('');
+    // }
 }

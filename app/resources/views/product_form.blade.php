@@ -8,9 +8,10 @@
       <h2>Say Hello</h2>
     </div>
     <input type="text" name="name" placeholder="Name" /><br />
-    <input  type="email" name="email" placeholder="Email" /><br />
-    <textarea type="text" name="message" placeholder="Message"></textarea><br />
-    <div class="message">Message Sent</div>
+    <input  type="text" name="text" placeholder="Taxt" /><br />
+    <input type="text" name="price" placeholder="Price"></textarea><br />
+    <input type="file" name="image_path">
+    <button>アップロード</button>
     <button id="submit" type="submit">
       Send!
     </button>

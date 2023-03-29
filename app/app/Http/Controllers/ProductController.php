@@ -15,7 +15,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $product = new product;
+        $product = new Product;
         $products = $product->all()->toArray();
     }
 
@@ -38,17 +38,27 @@ class ProductController extends Controller
     public function store(Request $request)
     {
 
-        $product = new product;
-        
+        $product = new Product;
+
         $product->name = $request->name;
-        $product->email = $request->email;
-        $product->message = $request->message;
-        //$request->name;
+        $product->text = $request->text;
+        $product->price = $request->price;
+        $product->image_path = $request->image_path;
+
+        // ディレクトリ名
+        $dir = 'sample';
+
+        // アップロードされたファイル名を取得
+        $file_name = $request->file('image_path')->getClientOriginalName();
+
+        // 取得したファイル名で保存
+        $request->file('image_path')->storeAs('public/' . $dir, $file_name);
 
         $product->save();
         
         return redirect('/');
     }
+
 
     /**
      * Display the specified resource.
