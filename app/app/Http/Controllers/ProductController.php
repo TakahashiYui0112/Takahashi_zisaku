@@ -17,6 +17,10 @@ class ProductController extends Controller
     {
         $product = new Product;
         $products = $product->all()->toArray();
+
+        return view('product_list', [
+            'products' => $products,
+        ]);
     }
 
     /**
@@ -77,9 +81,20 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(int $id)
     {
-        //
+        $product = new Product;
+
+
+        $result = $product->find($id);
+
+
+        return view('product_form',[
+            'id' => $id,
+            'result' => $result, 
+        ]);
+      
+
     }
 
     /**
@@ -89,9 +104,19 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, int $id)
     {
-        //
+        $product = new Product;
+        $record = $instance->find($id);
+
+        $record->name = $request->name;
+        $record->text = $request->text;
+        $record->price = $request->price;
+        $record->image_path = $request->image_path;
+
+        $product->save();
+        
+        return redirect('product_list');        
     }
 
     /**

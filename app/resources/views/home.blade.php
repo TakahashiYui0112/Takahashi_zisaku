@@ -16,6 +16,7 @@
 
                     You are logged in!
                     <a href ="{{route('products.create')}}" class="btn btn-info">商品登録</a>
+                    <a href ="{{route('products.index')}}" class="btn btn-info">商品一覧</a>
                 </div>
             </div>
         </div>
