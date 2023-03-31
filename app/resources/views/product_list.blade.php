@@ -24,9 +24,10 @@
                 <td>{{$product['price']}}</td>
                 <td>{{$product['image_path']}}</td>
                
-                <td> <a href ="{{ route('products.edit', ['id' => $params['id']]) }}" class="btn btn-secondary">登録</a>
+                <td> <a href =" route('product.edit',['product' => $products['id']]) " class="btn btn-secondary">編集</a>
                 /
-            </tr>
+                <td> <a href ="" class="btn btn-danger">削除</a>
+             </tr>
             @endforeach
          </tbody>
      </table>

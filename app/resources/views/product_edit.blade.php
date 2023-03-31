@@ -1,16 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-<form id="contact" action="{{route('products.store')}}" method="post" enctype="multipart/form-data">
+<form id="contact" action="{{route('products.edit')}}" method="post" enctype="multipart/form-data">
 @csrf
   <div class="container">
     <div class="head">
       <h2>Say Hello</h2>
     </div>
-    <input type="text" name="name" placeholder="Name" /><br />
-    <input  type="text" name="text" placeholder="Taxt" /><br />
-    <input type="text" name="price" placeholder="Price"></textarea><br />
-    <input type="file" name="image_path">
+    <input type="text" name="name" placeholder="Name" value="{{ old('name')}}" /><br />
+    <input  type="text" name="text" placeholder="Taxt" value="{{ old('taxt')}}" /><br />
+    <input type="text" name="price" placeholder="Price" value="{{ old('price')}}"></textarea><br />
+    <input type="file" name="image_path" value="{{ old('image_path')}}">
     <button>アップロード</button>
     <button id="submit" type="submit">
       Send!

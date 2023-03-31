@@ -83,14 +83,12 @@ class ProductController extends Controller
      */
     public function edit(int $id)
     {
-        $product = new Product;
-
-
         $result = $product->find($id);
+        $products = Product::where('id',$product)->get();
 
 
         return view('product_form',[
-            'id' => $id,
+            'id' => $products['id'],
             'result' => $result, 
         ]);
       
@@ -106,17 +104,17 @@ class ProductController extends Controller
      */
     public function update(Request $request, int $id)
     {
-        $product = new Product;
+        $instance = new Product;
         $record = $instance->find($id);
 
-        $record->name = $request->name;
-        $record->text = $request->text;
-        $record->price = $request->price;
-        $record->image_path = $request->image_path;
+        $columns = ['name', 'text', 'price', 'image_path'];
 
-        $product->save();
-        
-        return redirect('product_list');        
+        foreach($columns as $column){
+            $record->$column = $request->$column;
+        }
+        $record->save();
+
+        return redirect('/');     
     }
 
     /**
