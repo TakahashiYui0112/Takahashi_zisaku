@@ -13,13 +13,24 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $product = new Product;
-        $products = $product->all()->toArray();
+        
+       
+        $keyword = $request->input('keyword');
 
+        $query = Product::query();
+
+        if(!empty($keyword)) {
+            $query->where('name', 'LIKE', "%{$keyword}%")
+                ->orWhere('price', 'LIKE', "%{$keyword}%");
+        }
+
+        $posts = $query->get();
+        
         return view('product_list', [
-            'products' => $products,
+            'products' => $posts,
+            'keyword' => $keyword,
         ]);
     }
 
@@ -81,15 +92,17 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(int $id)
+    public function edit(Product $product)
     {
-        $result = $product->find($id);
-        $products = Product::where('id',$product)->get();
+    
+        
+        $result = $product->find($product);
+        
 
-
-        return view('product_form',[
-            'id' => $products['id'],
-            'result' => $result, 
+        return view('product_edit',[
+            'id' => $product['id'],
+            'result' => $product,
+             
         ]);
       
 
@@ -102,8 +115,9 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, int $id)
+    public function update(int $id, Request $request)
     {
+        
         $instance = new Product;
         $record = $instance->find($id);
 
@@ -126,5 +140,25 @@ class ProductController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    public function search(Request $request)
+    {
+        $keyword = $request->input('keyword');
+
+        $query = Product::query();
+
+        if(!empty($keyword)) {
+            $query->where('name', 'LIKE', "%{$keyword}%")
+                ->orWhere('price', 'LIKE', "%{$keyword}%");
+        }
+
+        $posts = $query->get();
+        
+        return view('product_list', compact('posts', 'keyword'));
+    
+    
+    
     }
 }
