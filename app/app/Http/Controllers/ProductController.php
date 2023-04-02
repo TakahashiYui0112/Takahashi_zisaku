@@ -15,7 +15,7 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        
+        $posts = Product::paginate(20);
        
         $keyword = $request->input('keyword');
 
@@ -26,7 +26,7 @@ class ProductController extends Controller
                 ->orWhere('price', 'LIKE', "%{$keyword}%");
         }
 
-        $posts = $query->get();
+        $posts = $query->paginate(20);
         
         return view('product_list', [
             'products' => $posts,
@@ -145,20 +145,7 @@ class ProductController extends Controller
 
     public function search(Request $request)
     {
-        $keyword = $request->input('keyword');
-
-        $query = Product::query();
-
-        if(!empty($keyword)) {
-            $query->where('name', 'LIKE', "%{$keyword}%")
-                ->orWhere('price', 'LIKE', "%{$keyword}%");
-        }
-
-        $posts = $query->get();
-        
-        return view('product_list', compact('posts', 'keyword'));
-    
-    
+        //
     
     }
 }

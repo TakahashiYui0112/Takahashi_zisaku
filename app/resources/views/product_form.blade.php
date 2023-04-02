@@ -8,7 +8,7 @@
       <h2>Say Hello</h2>
     </div>
     <input type="text" name="name" placeholder="Name" /><br />
-    <input  type="text" name="text" placeholder="Taxt" /><br />
+    <input  type="text" name="text" placeholder="Text" /><br />
     <input type="text" name="price" placeholder="Price"></textarea><br />
     <input type="file" name="image_path">
     <button>アップロード</button>
