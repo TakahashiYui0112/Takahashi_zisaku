@@ -21,3 +21,7 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::resource('products', 'ProductController');
 
 Route::get('search', 'ProductController@search')->name('search');
+
+Route::group(['middleware' => ['auth', 'can:admin_only']], function () {
+    Route::get('account', 'AccountController@index')->name('account.index');
+});
