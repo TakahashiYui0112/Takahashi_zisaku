@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+@can ('admin_only')
+  <span>管理者にだけ表示させる</span>
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -22,4 +25,7 @@
         </div>
     </div>
 </div>
+@elsecan ('user_only')
+
+@endcan
 @endsection
