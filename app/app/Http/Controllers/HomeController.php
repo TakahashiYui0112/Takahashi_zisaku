@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Product;
+
 class HomeController extends Controller
 {
     /**
@@ -21,8 +23,14 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('home');
+          $products = new Product;
+        $products = $products->get();
+        //$products = $this->request->getimg(); 
+        return view('home'.[
+            'products' => $products
+        ]);
+        
     }
 }
