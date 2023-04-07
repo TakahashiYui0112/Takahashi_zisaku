@@ -75,6 +75,11 @@ class ProductController extends Controller
         // 取得したファイル名で保存
         $request->file('image_path')->storeAs('public/' . $dir, $file_name);
 
+        // ファイル情報をDBに保存
+        $image->name = $file_name;
+        $image->path = 'storage/' . $dir . '/' . $file_name;
+        $image->save();
+
         $product->save();
         
         return redirect('/');
