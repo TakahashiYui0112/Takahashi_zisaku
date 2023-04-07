@@ -28,7 +28,7 @@
 @elsecan ('user_only')
 <span>これはユーザーだけ表示させる</span>
 
-<img src="{{ asset('$product->image_path') }}" alt="">
+<img src="{{ asset('storage/'.'$product->image_path') }}" alt="">
 
 @endcan
 @endsection

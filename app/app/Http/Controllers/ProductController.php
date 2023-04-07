@@ -59,7 +59,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
 
-        $product = new Product;
+        $product = new Product();
 
         $product->name = $request->name;
         $product->text = $request->text;
@@ -78,7 +78,6 @@ class ProductController extends Controller
         // ファイル情報をDBに保存
         $product->name = $file_name;
         $product->image_path = 'storage/' . $dir . '/' . $file_name;
-
         $product->save();
         
         return redirect('/');
