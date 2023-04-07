@@ -27,8 +27,8 @@
 </div>
 @elsecan ('user_only')
 <span>これはユーザーだけ表示させる</span>
- @foreach($products as $product)
+
 <img src="{{ asset('$product->image_path') }}" alt="">
-@endforeach
+
 @endcan
 @endsection

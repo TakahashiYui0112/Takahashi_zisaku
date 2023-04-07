@@ -28,9 +28,7 @@ class HomeController extends Controller
           $products = new Product;
         $products = $products->get();
         //$products = $this->request->getimg(); 
-        return view('home'.[
-            'products' => $products
-        ]);
+        return view('home');
         
     }
 }
