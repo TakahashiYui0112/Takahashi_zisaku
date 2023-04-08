@@ -6,6 +6,7 @@ use App\Notifications\PasswordResetUserNotification;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
+use App\Like;
 
 class User extends Authenticatable
 {
@@ -42,5 +43,10 @@ class User extends Authenticatable
     {
         $this->notify(new PasswordResetUserNotification($token));    
     }   
+
+    public function likes()
+    {
+        return $this->hasMany('App\Like');
+    }
     
 }

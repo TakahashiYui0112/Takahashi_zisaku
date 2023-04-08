@@ -22,6 +22,11 @@ Route::resource('products', 'ProductController');
 
 Route::get('search', 'ProductController@search')->name('search');
 
-Route::group(['middleware' => ['auth', 'can:admin_only']], function () {
+Route::group(['middleware' => 'auth', 'can:admin_only'], function () {
     Route::get('account', 'AccountController@index')->name('account.index');
 });
+
+Route::get('/', 'HomeController@index')->name('home');
+Route::resource('guests', 'GuestController');
+
+Route::post('like', 'GuestController@like')->name('like');

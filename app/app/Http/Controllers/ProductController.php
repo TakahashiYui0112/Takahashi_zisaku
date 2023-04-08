@@ -60,6 +60,7 @@ class ProductController extends Controller
     {
 
         $product = new Product();
+        
 
         $product->name = $request->name;
         $product->text = $request->text;
@@ -74,13 +75,15 @@ class ProductController extends Controller
 
         // 取得したファイル名で保存
         $request->file('image_path')->storeAs('public/' . $dir, $file_name);
-
+        
         // ファイル情報をDBに保存
         $product->name = $file_name;
         $product->image_path = 'storage/' . $dir . '/' . $file_name;
         $product->save();
         
-        return redirect('/');
+        
+        
+        return redirect('/'); 
     }
 
 

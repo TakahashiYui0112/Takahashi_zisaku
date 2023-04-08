@@ -26,9 +26,12 @@ class HomeController extends Controller
     public function index(Request $request)
     {
           $products = new Product;
-        $products = $products->get();
+        $product = $products->all()->toArray();
         //$products = $this->request->getimg(); 
-        return view('home');
-        
+   
+        return view('home',[
+            'posts' => $product,
+             
+        ]);
     }
 }
