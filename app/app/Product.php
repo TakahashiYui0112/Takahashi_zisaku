@@ -24,8 +24,7 @@ class Product extends Model
     ];
 
  
-    public function likes()
-    {
+    public function likes(){
         return $this->hasMany('App\Like');
     }
     //後でViewで使う、いいねされているかを判定するメソッド。

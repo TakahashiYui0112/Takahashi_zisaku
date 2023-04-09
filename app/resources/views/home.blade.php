@@ -38,12 +38,12 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
 <!-- body内 -->
-<!-- 参考：$itemにはReviewControllerから渡した投稿のレコード$itemsをforeachで展開してます -->
+<!-- 参考：$itemにはGuestControllerから渡した商品のレコード$itemsをforeachで展開してます -->
 @auth
-  <!-- Review.phpに作ったisLikedByメソッドをここで使用 -->
-  @if (!$review->isLikedBy(Auth::user()))
+  <!-- Product.phpに作ったisLikedByメソッドをここで使用 -->
+  @if (!$products->isLikedBy(Auth::user()))
     <span class="likes">
-        <i class="fas fa-music like-toggle" data-review-id="{{ $item->id }}"></i>
+        <i class="fas fa-music like-toggle" data-product-id="{{ $item->id }}"></i>
       <span class="like-counter">{{$item->likes_count}}</span>
     </span><!-- /.likes -->
   @else
