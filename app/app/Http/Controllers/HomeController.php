@@ -28,10 +28,10 @@ class HomeController extends Controller
           $products = new Product;
         $product = $products->all()->toArray();
         //$products = $this->request->getimg(); 
-   
+        
         return view('home',[
             'posts' => $product,
-             
+            'products' => $products
         ]);
     }
 }

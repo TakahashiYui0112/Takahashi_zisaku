@@ -1,9 +1,10 @@
 $(function () {
-    let like = $('.like-toggle'); //like-toggleのついたiタグを取得し代入。
-    let likeProductId; //変数を宣言（なんでここで？）
-    like.on('click', function () { //onはイベントハンドラー
-      let $this = $(this); //this=イベントの発火した要素＝iタグを代入
-      likeProductId = $this.data('product-id'); //iタグに仕込んだdata-review-idの値を取得
+  let like = $('.like-toggle'); //like-toggleのついたiタグを取得し代入。
+  let likeProductId; //変数を宣言（なんでここで？）
+  like.on('click', function () { //onはイベントハンドラー
+    let $this = $(this); //this=イベントの発火した要素＝iタグを代入
+    likeProductId = $this.data('product-id'); //iタグに仕込んだdata-review-idの値を取得
+    console.log(likeProductId)
       //ajax処理スタート
       $.ajax({
         headers: { //HTTPヘッダ情報をヘッダ名と値のマップで記述

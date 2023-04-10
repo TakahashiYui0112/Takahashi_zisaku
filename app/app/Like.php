@@ -17,4 +17,5 @@ class Like extends Model
     {   //productsテーブルとのリレーションを定義するreviewメソッド
         return $this->belongsTo(Product::class);
     }
+
 }

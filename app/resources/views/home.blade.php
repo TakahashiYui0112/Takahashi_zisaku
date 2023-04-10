@@ -32,33 +32,27 @@
 
 @foreach($posts as $post)
 <img src="{{ asset($post['image_path']) }}" alt="" width="200" height="200">
-@endforeach
+
 
 <!-- head内 -->
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
 <!-- body内 -->
 <!-- 参考：$itemにはGuestControllerから渡した商品のレコード$itemsをforeachで展開してます -->
-@auth
+
   <!-- Product.phpに作ったisLikedByメソッドをここで使用 -->
   @if (!$products->isLikedBy(Auth::user()))
     <span class="likes">
-        <i class="fas fa-music like-toggle" data-product-id="{{ $item->id }}"></i>
-      <span class="like-counter">{{$item->likes_count}}</span>
+        <i class="fa-regular fa-heart like-toggle" data-product-id="{{ $post['id'] }}"></i>
+     
     </span><!-- /.likes -->
   @else
     <span class="likes">
-        <i class="fas fa-music heart like-toggle liked" data-review-id="{{ $item->id }}"></i>
-      <span class="like-counter">{{$item->likes_count}}</span>
+        <i class="fa-regular fa-heart heart like-toggle liked" data-review-id="{{ $post['id'] }}"></i>
+     
     </span><!-- /.likes -->
   @endif
-@endauth
-@guest
-  <span class="likes">
-      <i class="fas fa-music heart"></i>
-    <span class="like-counter">{{$item->likes_count}}</span>
-  </span><!-- /.likes -->
-@endguest
+  @endforeach
 
 <style>
 

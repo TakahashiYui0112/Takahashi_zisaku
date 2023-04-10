@@ -29,4 +29,4 @@ Route::group(['middleware' => 'auth', 'can:admin_only'], function () {
 Route::get('/', 'HomeController@index')->name('home');
 Route::resource('guests', 'GuestController');
 
-Route::post('like', 'GuestController@like')->name('like');
+Route::post('/like', 'GuestController@like')->name('like');

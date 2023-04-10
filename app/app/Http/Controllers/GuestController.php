@@ -7,6 +7,8 @@ use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+use App\User;
+
 class GuestController extends Controller
 {
     /**
@@ -64,9 +66,16 @@ class GuestController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        $result = $user->find($user);
+        
+
+        return view('guest_form',[
+            'id' => $user['id'],
+            'result' => $user,
+             
+        ]);
     }
 
     /**
@@ -78,8 +87,19 @@ class GuestController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $instance = new User;
+        $record = $instance->find($id);
+
+        $columns = ['name', 'kane', 'postcode', 'address', 'tel', 'email'];
+
+        foreach($columns as $column){
+            $record->$column = $request->$column;
+        }
+        $record->save();
+
+        return redirect('/');     
     }
+    
 
     /**
      * Remove the specified resource from storage.
@@ -114,7 +134,7 @@ class GuestController extends Controller
     $param = [
         'product_likes_count' => $product_likes_count,
     ];
-    return response()->json($param); //6.JSONデータをjQueryに返す
+    return response()->json(); //6.JSONデータをjQueryに返す
     }
 
 
