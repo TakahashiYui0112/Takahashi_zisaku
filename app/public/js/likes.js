@@ -18,12 +18,13 @@ $(function () {
       })
       //通信成功した時の処理
       .done(function (data) {
-        $this.toggleClass('liked'); //likedクラスのON/OFF切り替え。
-        $this.next('.like-counter').html(data.product_likes_count);
+        $this.removeClass('fa-regular fa-heart');
+       $this.addClass('fa-solid fa-heart liked');
+        
       })
       //通信失敗した時の処理
-      .fail(function () {
-        console.log('fail'); 
+      .fail(function (date) {
+        console.log(date); 
       });
     });
     });

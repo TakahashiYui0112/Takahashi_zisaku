@@ -16,6 +16,9 @@ class Like extends Model
     public function product()
     {   //productsテーブルとのリレーションを定義するreviewメソッド
         return $this->belongsTo(Product::class);
+        
     }
+    protected $fillable = ['user_id','product_id'];
+    public $timestamps = false;
 
 }

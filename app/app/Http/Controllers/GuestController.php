@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class GuestController extends Controller
 {
@@ -57,7 +58,7 @@ class GuestController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('guest_mypage');
     }
 
     /**
@@ -68,10 +69,11 @@ class GuestController extends Controller
      */
     public function edit(User $user)
     {
+
         $result = $user->find($user);
         
-
-        return view('guest_form',[
+        
+        return view('guest_edit',[
             'id' => $user['id'],
             'result' => $user,
              
@@ -87,17 +89,16 @@ class GuestController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $instance = new User;
-        $record = $instance->find($id);
+       $user = User::find($id);
 
-        $columns = ['name', 'kane', 'postcode', 'address', 'tel', 'email'];
+        $columns = ['name', 'kana', 'postcode', 'address', 'tel', 'email'];
 
         foreach($columns as $column){
-            $record->$column = $request->$column;
+            $user->$column = $request->$column;
         }
-        $record->save();
+        $user->save();
 
-        return redirect('/');     
+        return view('guest_mypage');     
     }
     
 
@@ -117,7 +118,7 @@ class GuestController extends Controller
     public function like(Request $request)
     {
 
-    $user_id = Auth::user()->id; //1.ログインユーザーのid取得
+    $user_id = Auth::id(); //1.ログインユーザーのid取得
     $product_id = $request->product_id; //2.商品idの取得
     $already_liked = Like::where('user_id', $user_id)->where('product_id', $product_id)->first(); //3.
 
@@ -126,15 +127,17 @@ class GuestController extends Controller
         $like->product_id = $product_id; //Likeインスタンスにproduct_id,user_idをセット
         $like->user_id = $user_id;
         $like->save();
+        return response()->json('OK');
     } else { //もしこのユーザーがこの商品に既にいいねしてたらdelete
         Like::where('product_id', $product_id)->where('user_id', $user_id)->delete();
+        return response()->json('NO');
     }
     //5.この商品の最新の総いいね数を取得
-    $product_likes_count = Product::withCount('likes')->findOrFail($product_id)->likes_count;
-    $param = [
-        'product_likes_count' => $product_likes_count,
-    ];
-    return response()->json(); //6.JSONデータをjQueryに返す
+    // $product_likes_count = Product::withCount('likes')->findOrFail($product_id)->likes_count;
+    // $param = [
+    //     'product_likes_count' => $product_likes_count,
+    // ];
+     //6.JSONデータをjQueryに返す
     }
 
 

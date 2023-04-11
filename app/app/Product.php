@@ -28,8 +28,8 @@ class Product extends Model
         return $this->hasMany('App\Like');
     }
     //後でViewで使う、いいねされているかを判定するメソッド。
-    public function isLikedBy($user): bool {
-        return Like::where('user_id', $user->id)->where('product_id', $this->id)->first() !==null;
+    public function isLikedBy($user_id,$product_id): bool {
+        return Like::where('user_id', $user_id)->where('product_id', $product_id)->exists();
     }
 
 }

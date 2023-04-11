@@ -1,18 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-<form id="contact" action="{{route('products.store')}}" method="post" enctype="multipart/form-data">
+<form id="contact" action="{{route('guests.show',auth()->user())}}" method="post" enctype="multipart/form-data">
+@method('PUT')
 @csrf
   <div class="container">
     <div class="head">
       <h2>Say Hello</h2>
     </div>
-    <input type="text" name="name" placeholder="Name" value="{{ $result['name']}}" /><br />
-    <input  type="text" name="kana" placeholder="Kana" /><br />
-    <input  type="text" name="postcode" placeholder="Postcode" /><br />
-    <input  type="text" name="address" placeholder="Address" /><br />
-    <input  type="text" name="tel" placeholder="Tel" /><br />
-    <input  type="text" name="email" placeholder="Email" value="{{ $result['email']}}"/><br />>
+    <input type="text" name="name" placeholder="Name" value="{{ Auth::user()->name }}" /><br />
+    <input  type="text" name="kana" placeholder="Kana" value="{{ Auth::user()->kana }}" /><br />
+    <input  type="text" name="postcode" placeholder="Postcode" value="{{ Auth::user()->postcode }}" /><br />
+    <input  type="text" name="address" placeholder="Address" value="{{ Auth::user()->address }}" /><br />
+    <input  type="text" name="tel" placeholder="Tel" value="{{ Auth::user()->tel }}" /><br />
+    <input  type="text" name="email" placeholder="Email" value="{{ Auth::user()->email }}"/><br />>
     <button>アップロード</button>
     <button id="submit" type="submit">
       Send!
