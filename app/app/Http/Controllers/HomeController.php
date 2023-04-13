@@ -31,7 +31,8 @@ class HomeController extends Controller
         
         return view('home',[
             'posts' => $product,
-            'products' => $products
+            'products' => $products,
         ]);
     }
 }
+

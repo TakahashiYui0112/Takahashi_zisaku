@@ -33,7 +33,7 @@
 <a href ="{{route('guests.show', auth()->user())}}" class="btn btn-info">マイページへ</a>
 
 @foreach($posts as $post)
-<img src="{{ asset($post['image_path']) }}" alt="" width="200" height="200">
+<a href="{{route('details.show', auth()->user())}}"><img src="{{ asset($post['image_path']) }}" alt="" width="200" height="200"></a>
 
 
 <!-- head内 -->

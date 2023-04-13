@@ -58,6 +58,7 @@ class GuestController extends Controller
      */
     public function show($id)
     {
+        
         return view('guest_mypage');
     }
 
@@ -139,6 +140,8 @@ class GuestController extends Controller
     // ];
      //6.JSONデータをjQueryに返す
     }
+
+
 
 
 }

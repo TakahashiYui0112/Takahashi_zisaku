@@ -31,3 +31,6 @@ Route::resource('guests', 'GuestController');
 
 Route::post('/like', 'GuestController@like')->name('like');
 
+Route::get('/', 'HomeController@index')->name('home');
+Route::resource('details', 'DetailController');
+
