@@ -3,18 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Product;
-use Illuminate\Http\Request;
+use App\Like;
+use App\User;
 
-class DetailController extends Controller
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
+class CartController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        
+        $cart = Cart::where('user_id',Auth::id())->get();
+
     }
 
     /**
@@ -22,9 +28,28 @@ class DetailController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request, $id)
     {
-        //
+        $cart = new Cart;
+        $record = $cart->find($id);
+
+        $columns = ['user_id'];
+
+        foreach($columns as $column){
+            $record->$column = $request->$column;
+        }
+
+        if(!$cart){
+            $cart = new Cart;
+            $record = $cart->find($id);
+
+        }
+
+
+
+        $record->save();
+
+        return redirect('/');    
     }
 
     /**
@@ -41,28 +66,21 @@ class DetailController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Detail  $detail
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $products =  Product::find($id);
-      
-
-        return view('product_detail',[
-            'products' => $products,
-            
-        ]);
-        
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Detail  $detail
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Detail $detail)
+    public function edit($id)
     {
         //
     }
@@ -71,10 +89,10 @@ class DetailController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Detail  $detail
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Detail $detail)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -82,10 +100,10 @@ class DetailController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Detail  $detail
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Detail $detail)
+    public function destroy($id)
     {
         //
     }

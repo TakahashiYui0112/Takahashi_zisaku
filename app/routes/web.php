@@ -34,3 +34,6 @@ Route::post('/like', 'GuestController@like')->name('like');
 Route::get('/', 'HomeController@index')->name('home');
 Route::resource('details', 'DetailController');
 
+Route::get('/', 'HomeController@index')->name('home');
+Route::resource('carts', 'CartController');
+

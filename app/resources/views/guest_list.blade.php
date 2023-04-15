@@ -37,6 +37,7 @@
                 <td>{{$user['email']}}</td>
                
                 <td> <a href =" {{route('products.edit',$product['id'])}} " class="btn btn-secondary">編集</a>
+                
                 /
                 <td> <a href ="" class="btn btn-danger">削除</a>
              </tr>

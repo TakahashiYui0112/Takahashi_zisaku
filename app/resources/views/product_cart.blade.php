@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="d-flex justify-content-center">
-    <h4 class="gradation02 mb-5">商品詳細</h4>
+    <h4 class="gradation02 mb-5">カート一覧</h4>
 </div>
 
 
@@ -19,18 +19,19 @@
              </tr>
          </thead>
          <tbody>
-            
+            @foreach($products as $product)
              <tr>
-                <td>{{$products['name']}}</td>
-                <td>{{$products['text']}}</td>
-                <td>{{$products['price']}}</td>
-            
+                <td>{{$product['name']}}</td>
+                <td>{{$product['text']}}</td>
+                <td>{{$product['price']}}</td>
+                <td>{{$product['image_path']}}</td>
                
-                <td> <a href ="" class="btn btn-secondary">カートに入れる</a>
-                
+               
+                <td> <a href ="" class="btn btn-danger">削除</a>
              </tr>
-            
+            @endforeach
          </tbody>
+         <a href ="{{route('guests.show', auth()->user())}}" class="btn btn-info">ご注文手続きへ</a>
      </table>
  </div>
 </div>

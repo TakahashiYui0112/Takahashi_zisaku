@@ -24,13 +24,10 @@
                 <td>{{$products['name']}}</td>
                 <td>{{$products['text']}}</td>
                 <td>{{$products['price']}}</td>
-            
-               
-                <td> <a href ="" class="btn btn-secondary">カートに入れる</a>
-                
              </tr>
             
          </tbody>
+         <a href ="" class="btn btn-info">注文を確定する</a>
      </table>
  </div>
 </div>
