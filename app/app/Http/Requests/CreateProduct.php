@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateData extends FormRequest
+class CreateProduct extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,11 +25,8 @@ class CreateData extends FormRequest
     {
         return [
             'name' => 'required|integer',
-            'kana' => 'required|integer',
-            'postcode' => 'required|numeric',
-            'address' => 'required|max:50',
-            'tel' => 'required|numeric',
-            'email' => 'email',
+            'text' => 'required|integer',
+            'price' => 'required|numeric',
         ];
     }
 }

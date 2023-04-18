@@ -50,7 +50,7 @@
     </span><!-- /.likes -->
   @else
     <span class="likes">
-        <i class="fa-solid fa-heart  like-toggle liked" data-product-id="{{ $post['id'] }}"></i>
+        <i class="fa-sharp fa-solid fa-heart like-toggle liked" data-product-id="{{ $post['id'] }}"></i>
      
     </span><!-- /.likes -->
   @endif
@@ -59,7 +59,7 @@
 <style>
 
 .liked {
-  color: pink;
+  color: red;
 }
 
 </style>

@@ -4,7 +4,7 @@ $(function () {
   like.on('click', function () { //onはイベントハンドラー
     let $this = $(this); //this=イベントの発火した要素＝iタグを代入
     likeProductId = $this.data('product-id'); //iタグに仕込んだdata-review-idの値を取得
-    console.log(likeProductId)
+    // console.log(likeProductId)
       //ajax処理スタート
       $.ajax({
         headers: { //HTTPヘッダ情報をヘッダ名と値のマップで記述
@@ -18,13 +18,13 @@ $(function () {
       })
       //通信成功した時の処理
       .done(function (data) {
-        $this.removeClass('fa-regular fa-heart');
-       $this.addClass('fa-solid fa-heart liked');
+        console.log(1);
+        $this.toggleClass('liked');
         
       })
       //通信失敗した時の処理
       .fail(function (date) {
-        console.log(date); 
+        console.log(2); 
       });
     });
     });

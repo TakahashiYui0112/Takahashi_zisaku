@@ -4,6 +4,15 @@
 <form id="contact" action="{{route('products.store')}}" method="post" enctype="multipart/form-data">
 @csrf
   <div class="container">
+  @if($errors->any())
+    <div class='alert alert-danger'>
+      <ul>
+         @foreach($errors->all() as $message)
+          <li>{{ $message}}</li>
+          @endforeach
+       </ul>
+    </div>      
+  @endif
     <div class="head">
       <h2>Say Hello</h2>
     </div>

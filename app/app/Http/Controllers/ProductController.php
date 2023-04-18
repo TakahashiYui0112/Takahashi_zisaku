@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Product;
 use App\Like;
 use App\User;
+use App\Http\Requests\CreateProduct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -58,7 +59,7 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateProduct $request)
     {
 
         $product = new Product();
@@ -129,7 +130,7 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CreateProduct $request, $id)
     {
         
         $instance = new Product;
