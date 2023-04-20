@@ -87,30 +87,26 @@
   color: red;
 }
 
-
 </style>
 
-<script>
-
-$('#btn-1').mouseover(function() {
-  showVideo('1');
-});
-$('#btn-2').mouseover(function() {
-  showVideo('2');
-});
-$('#btn-3').mouseover(function() {
-  showVideo('3');
-});
-$('#btn-4').mouseover(function() {
-  showVideo('4');
-});
-
-function showVideo(videoId){
-  $('.Video').css('display', 'none');
-  $('#video-'+videoId).css('display', 'block');  
-}
 
 
-</script>
+
+<section>
+  <h1>Classy Footer</h1>
+  <h3>Hover over the circle below</h3>
+</section>
+<div class="footer">
+  <div id="button"></div>
+<div id="container">
+<div id="cont">
+<div class="footer_center">
+     <h3>Classy footer text</h3>
+</div>
+</div>
+</div>
+</div>
+
+
 @endcan
 @endsection
