@@ -19,19 +19,19 @@
              </tr>
          </thead>
          <tbody>
-            @foreach($products as $product)
+            @foreach($carts as $cart)
              <tr>
-                <td>{{$product['name']}}</td>
-                <td>{{$product['text']}}</td>
-                <td>{{$product['price']}}</td>
-                <td>{{$product['image_path']}}</td>
+                <td>{{$cart->product->name}}</td>
+                <td>{{$cart->product->text}}</td>
+                <td>{{$cart->product->price}}</td>
+                <td>{{$cart->product->image_path}}</td>
                
                
                 <td> <a href ="" class="btn btn-danger">削除</a>
              </tr>
             @endforeach
          </tbody>
-         <a href ="{{route('guests.show', auth()->user())}}" class="btn btn-info">ご注文手続きへ</a>
+         <a href ="" class="btn btn-info">ご注文手続きへ</a>
      </table>
  </div>
 </div>

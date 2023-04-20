@@ -26,7 +26,7 @@
                 <td>{{$products['price']}}</td>
             
                
-                <td> <a href ="" class="btn btn-secondary">カートに入れる</a>
+                <td> <a href ="{{route('carts.show',$products->id)}}" class="btn btn-secondary">カートに入れる</a>
                 
              </tr>
             

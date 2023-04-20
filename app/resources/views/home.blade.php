@@ -51,6 +51,7 @@
 
 
 <a href ="{{route('guests.show', auth()->user())}}" class="btn btn-info">マイページへ</a><br>
+<a href ="{{route('carts.index')}}" class="btn btn-info">カートへ</a><br>
 
 @foreach($posts as $post)
 <a href="{{ route('details.show',$post['id']) }}"><img src="{{ asset($post['image_path']) }}" alt="" width="200" height="200"></a>
@@ -70,7 +71,7 @@
     </span><!-- /.likes -->
   @else
     <span class="likes">
-        <i class="fa-sharp fa-solid fa-heart like-toggle liked" data-product-id="{{ $post['id'] }}"></i>
+        <i class="fa-solid fa-heart like-toggle liked" data-product-id="{{ $post['id'] }}"></i>
      
     </span><!-- /.likes -->
   @endif
