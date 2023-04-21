@@ -19,189 +19,182 @@ line-height:1.45;
 
 /* Video Overlay */
 
-#overlay {
-background-color:rgba(0,0,0,.65);
-height:100%;
-left:0;
-position:relative;
-top:0;
-transition:background-color 300ms ease;
-width:100%;
+
+* {
+  box-sizing: border-box
+}
+html, body {
+  height: 100%
+}
+body {
+  font: 11px "Open Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: auto;
+  display: flex;
+  flex-flow: column nowrap;
+ 
+}
+ul {
+  list-style: none
+}
+a {
+  text-decoration: none
 }
 
-.fade { background-color:rgba(0,0,0,.85) !important; }
-
-
-/* Hero Video + Fallback */
-
-#hero-vid {
-backface-visibility:hidden;
-background:url("https://www.markhillard.com/sandbox/media/polina.jpg") no-repeat scroll 0 0 #000;
-background-size:cover;
-bottom:0;
-height:auto;
-min-height:100%;
-min-width:100%;
-perspective:1000;
-
-right:0;
-width:auto;
-z-index:-1;
+.flex-rw {
+  display: flex;
+  flex-flow: row wrap;
 }
 
-#hero-pic {
-display:block;
-height:auto;
-width:100%;
+footer {
+  background: rgb(55,55,55);
+  margin-top: auto;
+  width: 100%
+}
+.footer-list-top {
+  width: 33.333%
+}
+.footer-list-top > li {
+  text-align: center;
+  padding-bottom: 10px
+}
+.footer-list-header {
+  padding: 10px 0 5px 0;
+  color: #fff;
+  font: 2.3vw "Oswald", sans-serif
+}
+.footer-list-anchor {
+  font: 1.3em "Open Sans", sans-serif
+}
+.footer-social-section {
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+  margin-top: 5px;
 }
 
-#state {
-bottom:0;
-cursor:pointer;
-font-size:2.25rem;
-left:0;
-line-height:1;
-padding:2rem 2.5rem 1.65rem;
-position:absolute;
+.footer-social-overlap {
+  position: relative;
+  z-index: 2;
+  background: rgb(55,55,55);
+  padding: 0 20px
+}
+.footer-social-connect {
+  display: flex;
+  align-items: center;
+  font: 3.5em "Oswald", sans-serif;
+  color: #fff
+}
+.footer-social-small {
+  font-size: 0.6em;
+  padding: 0px 20px
+}
+.footer-social-overlap > a {
+  font-size: 3em
+}
+.footer-social-overlap > a:not(:first-child) {
+  margin-left: 0.38em
 }
 
-
-/* Content Styles */
-
-#title {
-backface-visibility:hidden;
-left:0;
-perspective:1000;
-position:fixed;
-width:100%;
+.footer-bottom-section > div:first-child {
+  margin-right: auto
 }
-
-#title h1 {
-background-color:rgba(0,0,0,.5);
-font-family:"Poiret One", sans-serif;
-font-size:2.5rem;
-padding:1rem 1.75rem;
+.footer-bottom-wrapper {
+  font-size: 1.5em;
+  color: #fff
 }
-
-#content {
-background-color:white;
-padding:2.5rem;
-
-z-index:1;
+.footer-address {
+  display: inline;
+  font-style: normal
 }
-
-#content p {
-font-size:1.25rem;
-letter-spacing:.02rem;
-margin-bottom:1.3rem;
+@media only screen and (max-width: 768px) {
+  .footer-list-header {
+    font-size: 2em
+  }
+  .footer-list-anchor {
+    font-size: 1.1em
+  }
+  .footer-social-connect {
+    font-size: 2.5em
+  }
+  .footer-social-overlap > a {
+    font-size: 2.24em
+  }
+  .footer-bottom-wrapper {
+    font-size: 1.3em
+  }
 }
-
-
-/* Media Queries */
-
-@media only screen and (max-width:768px) {
-    #overlay { height:auto; }
-}
-
-
-/* Visibility Helpers */
-
-
-
-@media only screen and (min-width:480px) and (max-width:768px) {
-    .visible-mobile,.hidden-tablet,.visible-desktop { display:none !important; }
-}
-
-@media only screen and (max-width:479px) {
-    .hidden-mobile,.visible-tablet,.visible-desktop { display:none !important; }
-}
-
-
-
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400);
-body{
-  font-family: 'Source Sans Pro', sans-serif;
-  font-weight:300;
-  background-color:lightblue;
-  color:#FFF;
-}
-section{
-  text-align:center;
-}
-.footer #button{
-  width:35px;
-  height:35px;
-  border: #727172 12px solid;
-  border-radius:35px;
-  margin:0 auto;
-  position:relative;
-  -webkit-transition: all 1s ease;
-    -moz-transition: all 1s ease;
-    -o-transition: all 1s ease;
-    -ms-transition: all 1s ease;
-    transition: all 1s ease;
-}
-.footer #button:hover{
-  width:35px;
-  height:35px;
-  border: #3A3A3A 12px solid;
-  -webkit-transition: all 1s ease;
-    -moz-transition: all 1s ease;
-    -o-transition: all 1s ease;
-    -ms-transition: all 1s ease;
-    transition: all 1s ease;
-  position:relative;
-}
-.footer {
-  bottom:0;
-  left:0;
-  position:fixed;
+@media only screen and (max-width: 568px) {
+  main {
+    font-size: 5em
+  }
+  .footer-list-top {
+    width: 100%
+  }
+  .footer-list-header {
+    font-size: 3em;
+  }
+  .footer-list-anchor {
+    font-size: 1.5em
+  }
+  .footer-social-section {
+    justify-content: center
+  }
+  .footer-social-section::after {
+    top: 25%
+  }
+  .footer-social-connect {
+    margin-bottom: 10px;
+    padding: 0 10px
+  }
+  .footer-social-overlap {
+    display: flex;
+    justify-content: center;
+  }
+  .footer-social-icons-wrapper {
     width: 100%;
-    height: 2em;
-    overflow:hidden;
-    margin:0 auto;
-  -webkit-transition: all 1s ease;
-    -moz-transition: all 1s ease;
-    -o-transition: all 1s ease;
-    -ms-transition: all 1s ease;
-    transition: all 1s ease;
-  z-index:999;
+    padding: 0
+  }
+  .footer-social-overlap > a:not(:first-child) {
+    margin-left: 20px;
+  }
+  .footer-bottom-section {
+    padding: 0 5px 10px 5px
+  }
+  .footer-bottom-wrapper {
+    text-align: center;
+    width: 100%;
+    margin-top: 10px
+  }
 }
-.footer:hover {
-  -webkit-transition: all 1s ease;
-    -moz-transition: all 1s ease;
-    -o-transition: all 1s ease;
-    -ms-transition: all 1s ease;
-    transition: all 1s ease;
-  height: 10em;
+@media only screen and (max-width: 480px) {
+  .footer-social-overlap > a {
+    margin: auto
+  }
+  .footer-social-overlap > a:not(:first-child) {
+    margin-left: 0;
+  }
+  .footer-bottom-rights {
+    display: block
+  }
 }
-.footer #container{
-  margin-top:5px;
-  width:100%;
-height:100%;
-  position:relative;
-  top:0;
-  left:0;
-  background: #3A3A3A;
-}
-.footer #cont{
-  position:relative;
-  top:-45px;
-  right:190px;
-  width:150px;
-  height:auto;
-  margin:0 auto;
-}
-.footer_center{
-  width:500px;
-  float:left;
-  text-align:center;
-}
-.footer h3{
-  font-family: 'Helvetica';
-  font-size: 30px;
-  font-weight: 100;
-  margin-top:70px;
-  margin-left:40px;
+@media only screen and (max-width: 320px) {
+  .footer-list-header {
+    font-size: 2.2em
+  }
+  .footer-list-anchor {
+    font-size: 1.2em
+  }
+  .footer-social-connect {
+    font-size: 2.4em
+  }
+  .footer-social-overlap > a {
+    font-size: 2.24em
+  }
+  .footer-bottom-wrapper {
+    font-size: 1.3em
+  }
 }
 
