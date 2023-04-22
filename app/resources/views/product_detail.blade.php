@@ -16,7 +16,7 @@
 <div id="content">
 
 <div class="d-flex justify-content-center">
-    <h4 class="gradation02 mb-5">商品詳細</h4>
+    <h4 class="gradation02 mb-5 mt-5  ">商品詳細</h4>
 </div>
 
 
@@ -34,6 +34,7 @@
          <tbody>
             
              <tr>
+             
                 <td>{{$products['name']}}</td>
                 <td>{{$products['text']}}</td>
                 <td>{{$products['price']}}</td>
@@ -54,7 +55,6 @@
       CONNECT <span class="footer-social-small">with</span> US
       </span>
       <span class="footer-social-overlap footer-social-icons-wrapper">
-      <a href="https://www.pinterest.com/paviliongift/" class="generic-anchor" target="_blank" title="Pinterest" itemprop="significantLink"><i class="fa fa-pinterest"></i></a>
       <a href="https://www.facebook.com/paviliongift" class="generic-anchor" target="_blank" title="Facebook" itemprop="significantLink"><i class="fa fa-facebook"></i></a>
       <a href="https://twitter.com/PavilionGiftCo" class="generic-anchor" target="_blank" title="Twitter" itemprop="significantLink"><i class="fa fa-twitter"></i></a>
       <a href="http://instagram.com/paviliongiftcompany" class="generic-anchor" target="_blank" title="Instagram" itemprop="significantLink"><i class="fa fa-instagram"></i></a>

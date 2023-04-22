@@ -18,9 +18,17 @@ $(function () {
       })
       //通信成功した時の処理
       .done(function (data) {
-        console.log(1);
-        $this.toggleClass('liked');
-        
+        console.log(data);
+        // $this.toggleClass('liked');
+        if(data!=='no'){
+        $this.removeClass('fa-regular fa-heart like-toggle');
+        $this.addClass('fa-solid fa-heart like-toggle liked');
+      }else{
+        console.log(123);
+        $this.removeClass('fa-solid fa-heart like-toggle liked');
+        $this.addClass('fa-regular fa-heart like-toggle');
+      }
+
       })
       //通信失敗した時の処理
       .fail(function (date) {

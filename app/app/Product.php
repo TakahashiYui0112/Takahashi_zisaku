@@ -32,4 +32,8 @@ class Product extends Model
         return Like::where('user_id', $user_id)->where('product_id', $product_id)->exists();
     }
 
+    public function cart_product(){
+        return $this->hasMany('App\Cartproduct');
+    }    
+
 }

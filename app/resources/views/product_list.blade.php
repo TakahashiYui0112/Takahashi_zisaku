@@ -18,19 +18,19 @@
      <table class="table table-striped table-hover">
          <thead>
              <tr>
-                 <th>商品名</th>
+                <th></th>
+                 <th>画像</th>
                  <th>商品説明</th>
                  <th>金額</th>
-                 <th></th>
              </tr>
          </thead>
          <tbody>
             @foreach($products as $product)
              <tr>
+                
                 <td>{{$product['name']}}</td>
                 <td>{{$product['text']}}</td>
                 <td>{{$product['price']}}</td>
-                <td>{{$product['image_path']}}</td>
                
                 <td> <a href =" {{route('products.edit',$product['id'])}} " class="btn btn-secondary">編集</a>
                 /

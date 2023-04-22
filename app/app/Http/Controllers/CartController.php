@@ -102,7 +102,16 @@ class CartController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cart = new Cart_product;
+        $oder = $cart->where('user_id',Auth::id())->with('product')->get();
+        // $oders = Product::withSum('cart_product', 'price')->get();
+        
+       
+        
+        return view('oder',[
+            'oders'=>$oder
+
+        ]);   
     }
 
     /**
@@ -114,7 +123,7 @@ class CartController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
     }
 
     /**

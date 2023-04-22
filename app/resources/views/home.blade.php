@@ -33,24 +33,22 @@
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
 
+<!-- ここからヘッター -->
+
 <div id="overlay">
     <div id="title"><h1>R'oseate</h1></div>
     
     <video class="visible-desktop" id="hero-vid" poster="https://www.markhillard.com/sandbox/media/polina.jpg" autoplay loop muted>
         <source type="video/webm" src="https://www.markhillard.com/sandbox/media/polina.webm"></source>
         <source type="video/mp4" src="https://www.markhillard.com/sandbox/media/polina.mp4"></source>
-
-        https://drive.google.com/file/d/1f8Kv3TLXAeWr9pD9yXuoV83WBB-HGGP8/view?usp=share_link
-
     </video>
     <div id="state" class="visible-desktop"><span class="fa fa-pause"></span></div>
-  
 </div>
-<div id="content">
 
 
 
-<a href ="{{route('guests.show', auth()->user())}}" class="btn btn-info">マイページへ</a><br>
+<!-- ここからメイン -->
+<a href ="{{route('guests.show', auth()->user())}}" class="btn btn-info .bottom-50">マイページへ</a><br>
 <a href ="{{route('carts.index')}}" class="btn btn-info">カートへ</a><br>
 
 @foreach($posts as $post)
@@ -78,25 +76,17 @@
   @endforeach
 
 
-  
  
 
-<style>
 
-.liked {
-  color: red;
-}
-
-</style>
-
-
-
+<!-- ここからフッター -->
 <footer class="flex-rw">
 <section class="footer-social-section flex-rw">
       <span class="footer-social-overlap footer-social-connect">
       CONNECT <span class="footer-social-small">with</span> US
       </span>
       <span class="footer-social-overlap footer-social-icons-wrapper">
+    
       <a href="https://www.pinterest.com/paviliongift/" class="generic-anchor" target="_blank" title="Pinterest" itemprop="significantLink"><i class="fa fa-pinterest"></i></a>
       <a href="https://www.facebook.com/paviliongift" class="generic-anchor" target="_blank" title="Facebook" itemprop="significantLink"><i class="fa fa-facebook"></i></a>
       <a href="https://twitter.com/PavilionGiftCo" class="generic-anchor" target="_blank" title="Twitter" itemprop="significantLink"><i class="fa fa-twitter"></i></a>
@@ -115,6 +105,33 @@
       </div>
       </section>
 </footer>
+
+<script>
+$(document).ready(function () {
+    $(window).on('load scroll', function () {
+        var scrolled = $(this).scrollTop();
+        $('#title').css({
+            'transform': 'translate3d(0, ' + -(scrolled * 0.2) + 'px, 0)', // parallax (20% scroll rate)
+            'opacity': 1 - scrolled / 400 // fade out at 400px from top
+        });
+        $('#hero-vid').css('transform', 'translate3d(0, ' + -(scrolled * 0.25) + 'px, 0)'); // parallax (25% scroll rate)
+    });
+    
+    // video controls
+    $('#state').on('click', function () {
+        var video = $('#hero-vid').get(0);
+        var icons = $('#state > span');
+        $('#overlay').toggleClass('fade');
+        if (video.paused) {
+            video.play();
+            icons.removeClass('fa-play').addClass('fa-pause');
+        } else {
+            video.pause();
+            icons.removeClass('fa-pause').addClass('fa-play');
+        }
+    });
+});
+</script>
 
 
 @endcan

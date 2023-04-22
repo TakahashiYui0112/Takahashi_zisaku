@@ -46,9 +46,23 @@ class GuestController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        //
+        $inst = new Oder;
+        $records = $inst>find($id);
+
+        $columns = ['peyment', 'money', 'user_id', 'cart_id'];
+
+        $cart = Cart::where('user_id',Auth::id())->first();
+
+        $records->peyment = $request->$column;
+        $records->money =
+        $records->user_id = Auth::id();
+        $records->cart_id = $cart->id;
+        
+        $records->save();
+
+        return redirect('/'); 
     }
 
     /**
@@ -129,10 +143,12 @@ class GuestController extends Controller
         $like->product_id = $product_id; //Likeインスタンスにproduct_id,user_idをセット
         $like->user_id = $user_id;
         $like->save();
-        return response()->json('OK');
+        $already_liked = Like::where('user_id', $user_id)->where('product_id', $product_id)->first(); //3.
+        return response()->json($already_liked);
     } else { //もしこのユーザーがこの商品に既にいいねしてたらdelete
         Like::where('product_id', $product_id)->where('user_id', $user_id)->delete();
-        return response()->json('NO');
+        $already_liked = Like::where('user_id', $user_id)->where('product_id', $product_id)->first(); //3.
+        return response()->json('no');
     }
     //5.この商品の最新の総いいね数を取得
     // $product_likes_count = Product::withCount('likes')->findOrFail($product_id)->likes_count;

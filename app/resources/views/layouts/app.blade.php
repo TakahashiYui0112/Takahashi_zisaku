@@ -12,6 +12,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/likes.js') }}" defer></script>
+    <script src="{{ asset('js/style.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -20,6 +21,8 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script src="https://kit.fontawesome.com/67fc42cf07.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    
 </head>
 <body>
     <div id="app">
