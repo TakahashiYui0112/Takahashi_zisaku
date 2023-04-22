@@ -12,7 +12,12 @@
     <div id="state" class="visible-desktop"><span class="fa fa-pause"></span></div>
   
 </div>
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <div class="d-flex justify-content-center">
     <h4 class="gradation02 mb-5">購入手続き</h4>
 </div>
@@ -36,12 +41,17 @@
                 <td>{{$oder->product->price}}</td>
              </tr>
             @endforeach
-</div>
-</div>
-            </tbody>
-
+            合計金額:{{$sum}}
+        </tbody>
+    </table>
+    </div>
+    </div>
+    <form action="{{route('guests.store')}}" method="post">
+    @csrf
+    <p class="text-dark">合計金額:{{$sum}}</p>
+    <input type="hidden" value="{{$sum}}" name="money">
 <div class="center">
-    <select name="peyment" id="sources" class="custom-select sources" placeholder="Source Type">
+    <select name="payment" id="sources" class="custom-select sources" placeholder="Source Type">
     <option value="クレジット">クレジットカード</option>
     <option value="代引き">代引き</option>
     <option value="コンビニ">コンビニ</option>
@@ -49,8 +59,8 @@
     </select>
 </div>
 
-                <a href ="{{route('guests.store')}}" class="btn btn-info">注文を確定する</a>
-                </table>
+                <button class="btn btn-info" type="subnit">注文を確定する</button>
+    </form>          
 
  <footer class="flex-rw">
     <section class="footer-social-section flex-rw">

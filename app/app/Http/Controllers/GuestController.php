@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Like;
 use App\Product;
+use App\Order;
+use App\Cart;
+use App\Cart_product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -46,22 +49,22 @@ class GuestController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $id)
+    public function store(Request $request)
     {
-        $inst = new Oder;
-        $records = $inst>find($id);
+      
+        $records = new Order;
 
         $columns = ['peyment', 'money', 'user_id', 'cart_id'];
 
         $cart = Cart::where('user_id',Auth::id())->first();
 
-        $records->peyment = $request->$column;
-        $records->money =
+        $records->payment = $request->payment;
+        $records->money = $request->money;
         $records->user_id = Auth::id();
         $records->cart_id = $cart->id;
         
         $records->save();
-
+        Cart_product::where('user_id',Auth::id())->delete();
         return redirect('/'); 
     }
 

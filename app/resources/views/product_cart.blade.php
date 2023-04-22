@@ -37,7 +37,13 @@
                 <td>{{$cart->product->text}}</td>
                 <td>{{$cart->product->price}}</td>
                
-                <td> <a href ="" class="btn btn-danger">削除</a>
+            <td>
+        <form action="{{ route('carts.destroy',$cart->id) }}" method="POST">
+            @csrf
+            @method('delete')
+            <button type="submit" class="btn btn-danger">削除</button>
+        </form>
+      </td>
              </tr>
             @endforeach
          </tbody>

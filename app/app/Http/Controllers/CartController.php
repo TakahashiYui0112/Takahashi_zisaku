@@ -106,10 +106,22 @@ class CartController extends Controller
         $oder = $cart->where('user_id',Auth::id())->with('product')->get();
         // $oders = Product::withSum('cart_product', 'price')->get();
         
+        $users = Cart_product::query()
+            ->withCount([
+                'product AS total_price_count' => function ($query) {
+                    $query->select(DB::raw("SUM(price) as view_count_sum"));
+                }
+            ])->get();
+            $sum=0;
+            foreach($users as $user){
+                $sum +=$user->total_price_count;
+            }
+            // dd($sum);
        
         
         return view('oder',[
-            'oders'=>$oder
+            'oders'=>$oder,
+            'sum' => $sum
 
         ]);   
     }
@@ -134,6 +146,8 @@ class CartController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Cart_product::find($id)->delete();
+        
+        return redirct('/');
     }
 }
