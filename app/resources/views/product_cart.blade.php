@@ -49,6 +49,7 @@
          </tbody>
          <a href ="{{route('carts.edit',Auth::id())}}" class="btn btn-info">ご注文手続きへ</a>
      </table>
+     
  </div>
 </div>
 

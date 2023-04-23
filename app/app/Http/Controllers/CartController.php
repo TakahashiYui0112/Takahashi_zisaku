@@ -116,7 +116,7 @@ class CartController extends Controller
             foreach($users as $user){
                 $sum +=$user->total_price_count;
             }
-            // dd($sum);
+            
        
         
         return view('oder',[
