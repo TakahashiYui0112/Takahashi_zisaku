@@ -38,9 +38,9 @@
 <div id="overlay">
     <div id="title"><h1>R'oseate</h1></div>
     
-    <video class="visible-desktop" id="hero-vid" poster="https://www.markhillard.com/sandbox/media/polina.jpg" autoplay loop muted>
-        <source type="video/webm" src="https://www.markhillard.com/sandbox/media/polina.webm"></source>
-        <source type="video/mp4" src="https://www.markhillard.com/sandbox/media/polina.mp4"></source>
+    <video class="visible-desktop" id="hero-vid" poster="{{ asset('storage/sample/suzu2.MP4') }}" autoplay loop muted>
+        <source type="video/webm" src="{{ asset('storage/sample/suzu2.MP4') }}"></source>
+        <source type="video/mp4" src="{{ asset('storage/sample/suzu2.MP4') }}"></source>
     </video>
     <div id="state" class="visible-desktop"><span class="fa fa-pause"></span></div>
 </div>
@@ -48,7 +48,9 @@
 
 
 <!-- ここからメイン -->
+<br>
 <a href ="{{route('guests.show', auth()->user())}}" class="btn btn-info .bottom-50">マイページへ</a><br>
+<br>
 <a href ="{{route('carts.index')}}" class="btn btn-info">カートへ</a><br>
 
 @foreach($posts as $post)
