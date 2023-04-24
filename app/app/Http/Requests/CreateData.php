@@ -24,8 +24,8 @@ class CreateData extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|integer',
-            'kana' => 'required|integer',
+            'name' => 'required',
+            'kana' => 'required',
             'postcode' => 'required|numeric',
             'address' => 'required|max:50',
             'tel' => 'required|numeric',

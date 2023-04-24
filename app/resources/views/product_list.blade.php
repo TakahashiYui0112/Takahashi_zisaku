@@ -34,7 +34,10 @@
                
                 <td> <a href =" {{route('products.edit',$product['id'])}} " class="btn btn-secondary">編集</a>
                 /
-                <td> <a href ="" class="btn btn-danger">削除</a>
+                <form action="{{ route('products.destroy',$product->id) }}" method="POST">
+                    @csrf
+                    @method('delete')
+                    <button type="submit" class="btn btn-danger">削除</button>
              </tr>
             @endforeach
          </tbody>

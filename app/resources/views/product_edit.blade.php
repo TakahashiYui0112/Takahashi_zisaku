@@ -12,13 +12,7 @@
 <div id="overlay">
     <div id="title"><h1>R'oseate</h1></div>
     
-    <video class="visible-desktop" id="hero-vid" poster="https://www.markhillard.com/sandbox/media/polina.jpg" autoplay loop muted>
-        <source type="video/webm" src="https://www.markhillard.com/sandbox/media/polina.webm"></source>
-        <source type="video/mp4" src="https://www.markhillard.com/sandbox/media/polina.mp4"></source>
-
-        https://drive.google.com/file/d/1f8Kv3TLXAeWr9pD9yXuoV83WBB-HGGP8/view?usp=share_link
-
-    </video>
+  
     <div id="state" class="visible-desktop"><span class="fa fa-pause"></span></div>
   
 </div>

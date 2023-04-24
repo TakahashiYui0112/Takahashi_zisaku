@@ -148,6 +148,6 @@ class CartController extends Controller
     {
         Cart_product::find($id)->delete();
         
-        return redirct('/');
+        return redirect('/'); 
     }
 }

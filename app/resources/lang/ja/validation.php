@@ -154,7 +154,7 @@ return [
             'tel' => '電話番号',
             'email' => 'メールアドレス',
             'text' => '商品説明',
-            'product_name' => '商品名',
+            
             'price' => '金額',
             
     ],
