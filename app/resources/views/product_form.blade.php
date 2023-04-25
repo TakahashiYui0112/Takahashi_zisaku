@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
 <form id="contact" action="{{route('products.store')}}" method="post" enctype="multipart/form-data">
 @csrf
   <div class="container">

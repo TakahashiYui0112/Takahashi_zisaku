@@ -6,7 +6,7 @@
     <h4 class="gradation02 mb-5">商品一覧</h4>
 </div>
 
-<div>
+<div class="d-flex justify-content-center">
   <form action="{{ route('products.index')}}" method="GET">
     <input type="text" name="keyword" value="{{ $keyword }}">
     <input type="submit" value="検索">

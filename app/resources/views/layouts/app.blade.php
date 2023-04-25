@@ -71,16 +71,18 @@
                                     </form>
                                 </div>
                             </li>
+                            @can ('admin_only')                           
+                            @elsecan ('user_only')
                             <div>
                             <form action="{{ route('home')}}" method="GET">
                                 <input type="text" name="keyword" >
                                 <input type="submit" value="検索">
                             </form>
                             </div>
-                            
-<a href ="{{route('guests.show', auth()->user())}}" class="btn btn-info .bottom-50">マイページへ</a><br>
-<br>
-<a href ="{{route('carts.index')}}" class="btn btn-info">カートへ</a><br>
+                            <a href ="{{route('guests.show', auth()->user())}}" class="btn btn-info .bottom-50">マイページへ</a><br>
+                            <br>
+                            <a href ="{{route('carts.index')}}" class="btn btn-info">カートへ</a><br>
+                            @endcan
                         @endguest
                     </ul>
                 </div>
