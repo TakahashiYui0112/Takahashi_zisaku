@@ -55,7 +55,8 @@
 
 @foreach($posts as $post)
 <a href="{{ route('details.show',$post['id']) }}"><img src="{{ asset($post['image_path']) }}" alt="" width="200" height="200"></a>
-
+{{$post['name']}}
+{{$post['price']}}円
 
 <!-- head内 -->
 <meta name="csrf-token" content="{{ csrf_token() }}">

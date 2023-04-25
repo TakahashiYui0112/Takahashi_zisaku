@@ -80,7 +80,7 @@ class ProductController extends Controller
         $request->file('image_path')->storeAs('public/' . $dir, $file_name);
         
         // ファイル情報をDBに保存
-        $product->name = $file_name;
+        $product->name = $request->name;
         $product->image_path = 'storage/' . $dir . '/' . $file_name;
         $product->save();
         

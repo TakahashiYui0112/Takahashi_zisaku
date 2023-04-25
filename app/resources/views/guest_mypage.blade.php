@@ -30,7 +30,6 @@
                     <a href ="" class="btn btn-info">購入履歴</a>
                     <a href ="" class="btn btn-info">お気に入りリスト</a>
                     <a href ="{{route('guests.edit',auth()->user())}}" class="btn btn-info">プロフィール編集</a>
-                    <a href ="" class="btn btn-info">PASS変更</a>
                 </div>
             </div>
         </div>
