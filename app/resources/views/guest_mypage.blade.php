@@ -6,7 +6,7 @@
 
 
 <div id="overlay">
-    <div id="title"><h1>R'oseate</h1></div>
+  
 
     </video>
     <div id="state" class="visible-desktop"><span class="fa fa-pause"></span></div>
@@ -17,7 +17,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">マイページ</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -26,9 +26,9 @@
                         </div>
                     @endif
 
-                    You are logged in!
-                    <a href ="" class="btn btn-info">購入履歴</a>
-                    <a href ="" class="btn btn-info">お気に入りリスト</a>
+                    
+                    <a href ="{{route('order_history_list')}}" class="btn btn-info">購入履歴</a>
+                    <a href ="{{route('likesList')}}" class="btn btn-info">お気に入りリスト</a>
                     <a href ="{{route('guests.edit',auth()->user())}}" class="btn btn-info">プロフィール編集</a>
                 </div>
             </div>
@@ -36,7 +36,9 @@
     </div>
 </div>
 
-
+<br>
+<br>
+<br>
 <footer class="flex-rw">
 <section class="footer-social-section flex-rw">
       <span class="footer-social-overlap footer-social-connect">

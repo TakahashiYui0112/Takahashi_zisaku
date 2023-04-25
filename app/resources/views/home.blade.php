@@ -2,13 +2,13 @@
 
 @section('content')
 @can ('admin_only')
-  <span>管理者にだけ表示させる</span>
+  <span></span>
 
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">管理者用画面</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -17,7 +17,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                
                     <a href ="{{route('products.create')}}" class="btn btn-info">商品登録</a>
                     <a href ="{{route('products.index')}}" class="btn btn-info">商品一覧</a>
                 </div>
@@ -36,7 +36,7 @@
 <!-- ここからヘッター -->
 
 <div id="overlay">
-    <div id="title"><h1>R'oseate</h1></div>
+    
     
     <video class="visible-desktop" id="hero-vid" poster="{{ asset('storage/sample/suzu2.MP4') }}" autoplay loop muted>
         <source type="video/webm" src="{{ asset('storage/sample/suzu2.MP4') }}"></source>
@@ -48,10 +48,7 @@
 
 
 <!-- ここからメイン -->
-<br>
-<a href ="{{route('guests.show', auth()->user())}}" class="btn btn-info .bottom-50">マイページへ</a><br>
-<br>
-<a href ="{{route('carts.index')}}" class="btn btn-info">カートへ</a><br>
+
 
 @foreach($posts as $post)
 <a href="{{ route('details.show',$post['id']) }}"><img src="{{ asset($post['image_path']) }}" alt="" width="200" height="200"></a>

@@ -26,13 +26,32 @@ class HomeController extends Controller
     public function index(Request $request)
     {
           $products = new Product;
-        $product = $products->all()->toArray();
-        //$products = $this->request->getimg(); 
-        
-        return view('home',[
-            'posts' => $product,
-            'products' => $products,
-        ]);
+          $keyword = $request->input('keyword');
+          $query = Product::query();
+          if ($keyword) {  
+          // 全角スペースを半角に変換
+          $spaceConversion = mb_convert_kana($keyword, 's');
+          // 単語を半角スペースで区切り、配列にする（例："山田 翔" → ["山田", "翔"] 
+          $wordArraySearched = preg_split('/[\s,]+/', $spaceConversion, -1, PREG_SPLIT_NO_EMPTY); 
+          // 単語をループで回し、ユーザーネームと部分一致するものがあれば、$queryとして保持される
+          foreach($wordArraySearched as $value) {
+          $query->where('name', 'like', '%'.$value.'%')->orWhere('price', 'like', '%'.$value.'%');            
+          }
+          }
+          $posts = $query->get();
+           return view('home', [
+           'posts' => $posts,
+           'keyword' => $keyword,
+           'products' => $products,
+          ]);
+          
+          
+          
+          
+          
+          
+          
+          
     }
 }
 

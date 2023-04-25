@@ -29,7 +29,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                R'oseate
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -71,6 +71,16 @@
                                     </form>
                                 </div>
                             </li>
+                            <div>
+                            <form action="{{ route('home')}}" method="GET">
+                                <input type="text" name="keyword" >
+                                <input type="submit" value="検索">
+                            </form>
+                            </div>
+                            
+<a href ="{{route('guests.show', auth()->user())}}" class="btn btn-info .bottom-50">マイページへ</a><br>
+<br>
+<a href ="{{route('carts.index')}}" class="btn btn-info">カートへ</a><br>
                         @endguest
                     </ul>
                 </div>

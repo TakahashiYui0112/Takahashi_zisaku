@@ -14,13 +14,13 @@
     </div>      
   @endif
     <div class="head">
-      <h2>Say Hello</h2>
+      <h2>新規商品登録</h2>
     </div>
     <input type="text" name="name" placeholder="Name" /><br />
     <input  type="text" name="text" placeholder="Text" /><br />
     <input type="text" name="price" placeholder="Price"></textarea><br />
     <input type="file" name="image_path">
-    <button>アップロード</button>
+
     <button id="submit" type="submit">
       Send!
     </button>

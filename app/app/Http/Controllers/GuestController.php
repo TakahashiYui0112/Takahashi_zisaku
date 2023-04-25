@@ -64,7 +64,12 @@ class GuestController extends Controller
         $records->cart_id = $cart->id;
         
         $records->save();
-        Cart_product::where('user_id',Auth::id())->delete();
+
+        $complete = Cart_product::where('user_id',Auth::id())->where('order_flg',0)->get();
+        foreach($complete as $val) {
+        $val->order_flg = 1;
+        $val->save();
+}
         return redirect('/'); 
     }
 
@@ -162,6 +167,17 @@ class GuestController extends Controller
     }
 
 
-
-
+    public function likes_list(){
+        $likes = Like::where('user_id', Auth::id())->get();
+       
+        return view('likes_list',[
+            'likes' => $likes,
+        ]);
+    }
+    public function order_history_list(){
+        $val = Cart_product::where('user_id',Auth::id())->where('order_flg',1)->get();
+        return view('order_history',[
+        'orders' => $val,
+        ]);
+    }
 }

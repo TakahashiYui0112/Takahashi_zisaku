@@ -133,15 +133,24 @@ class ProductController extends Controller
     public function update(CreateProduct $request, $id)
     {
         
-        $instance = new Product;
-        $record = $instance->find($id);
+        $product = Product::find($id);
+        $product->text = $request->text;
+        $product->price = $request->price;
+       
 
-        $columns = ['name', 'text', 'price', 'image_path'];
+        // ディレクトリ名
+        $dir = 'sample';
 
-        foreach($columns as $column){
-            $record->$column = $request->$column;
-        }
-        $record->save();
+        // アップロードされたファイル名を取得
+        $file_name = $request->file('image_path')->getClientOriginalName();
+
+        // 取得したファイル名で保存
+        $request->file('image_path')->storeAs('public/' . $dir, $file_name);
+        
+        // ファイル情報をDBに保存
+        $product->name = $request->name;
+        $product->image_path = 'storage/' . $dir . '/' . $file_name;
+        $product->save();
 
         return redirect('/');     
     }

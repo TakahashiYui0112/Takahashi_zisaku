@@ -7,7 +7,7 @@
 
 
 <div id="overlay">
-    <div id="title"><h1>R'oseate</h1></div>
+    
 
     </video>
     <div id="state" class="visible-desktop"><span class="fa fa-pause"></span></div>

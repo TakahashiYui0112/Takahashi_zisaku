@@ -22,7 +22,7 @@ class CartController extends Controller
     public function index(Request $request)
     {
         
-        $cart = Cart_product::where('user_id',Auth::id())->get();
+        $cart = Cart_product::where('user_id',Auth::id())->where('order_flg',0)->get();
 
 
         return view('product_cart',[
@@ -103,7 +103,7 @@ class CartController extends Controller
     public function edit($id)
     {
         $cart = new Cart_product;
-        $oder = $cart->where('user_id',Auth::id())->with('product')->get();
+        $oder = $cart->where('user_id',Auth::id())->where('order_flg',0)->with('product')->get();
         // $oders = Product::withSum('cart_product', 'price')->get();
         
         $users = Cart_product::query()

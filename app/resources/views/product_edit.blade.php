@@ -10,7 +10,6 @@
 
 
 <div id="overlay">
-    <div id="title"><h1>R'oseate</h1></div>
     
   
     <div id="state" class="visible-desktop"><span class="fa fa-pause"></span></div>
@@ -28,13 +27,12 @@
     </div>      
   @endif
     <div class="head">
-      <h2>Say Hello</h2>
+      <h2>商品登録編集</h2>
     </div>
     <input type="text" name="name" placeholder="Name" value="{{ $result['name']}}" /><br />
     <input  type="text" name="text" placeholder="Teuxxt" value="{{ $result['text']}}" /><br />
     <input type="text" name="price" placeholder="Price" value="{{ $result['price']}}"></textarea><br />
-    <input type="file" name="image_path" value="{{ $result['image_path']}}">
-    <button>アップロード</button>
+    <input type="file" name="image_path">
     <button id="submit" type="submit">
       Send!
     </button>

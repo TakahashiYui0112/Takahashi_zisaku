@@ -31,9 +31,9 @@ Route::resource('guests', 'GuestController');
 
 Route::post('/like', 'GuestController@like')->name('like');
 
-Route::get('/', 'HomeController@index')->name('home');
 Route::resource('details', 'DetailController');
 
-Route::get('/', 'HomeController@index')->name('home');
 Route::resource('carts', 'CartController');
 
+Route::get('/likis_list','GuestController@likes_list')->name('likesList');
+Route::get('/order_history_list','GuestController@order_history_list')->name('order_history_list');
