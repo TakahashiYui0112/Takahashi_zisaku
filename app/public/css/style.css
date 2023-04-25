@@ -77,7 +77,7 @@ position:absolute;
 backface-visibility:hidden;
 left:0;
 perspective:1000;
-
+color: pink;
 width:100%;
 }
 
