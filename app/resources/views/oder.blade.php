@@ -48,7 +48,7 @@
     </div>
     <form action="{{route('guests.store')}}" method="post">
     @csrf
-    <p class="text-dark">合計金額:{{$sum}}</p>
+    
     <input type="hidden" value="{{$sum}}" name="money">
 <div class="center">
     <select name="payment" id="sources" class="custom-select sources" placeholder="Source Type">
