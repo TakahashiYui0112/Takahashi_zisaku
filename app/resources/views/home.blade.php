@@ -49,7 +49,32 @@
 
 <!-- ここからメイン -->
 
+<form>
+                            @csrf
+                            <div class="input-group">
+                                    <select name="min" value="">
+                                            <option value="">未選択</option>
+                                            @foreach($min_prices as $n_price)
+                                            <option value="{{ $n_price }}">
+                                                {{ $n_price }}
+                                            </option> 
+                                            @endforeach
+                                            </select>
+                                                        ~
+                                            <select name="max" value="">
+                                            <option value="">未選択</option>
 
+                                            @foreach($max_prices as $m_price)
+                                            <option value="{{ $m_price }}">
+                                                {{ $m_price }}
+                                            </option> 
+                                            @endforeach
+                                            </select>
+                                            <div class="col-auto">
+                                            <button type="submit" class="btn btn-primary btn-sm ml-4">検索</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
 @foreach($posts as $post)
 <a href="{{ route('details.show',$post['id']) }}"><img src="{{ asset($post['image_path']) }}" alt="" width="200" height="200"></a>
 {{$post['name']}}

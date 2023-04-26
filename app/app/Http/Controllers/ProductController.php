@@ -65,24 +65,31 @@ class ProductController extends Controller
         $product = new Product();
         
 
-        $product->name = $request->name;
-        $product->text = $request->text;
-        $product->price = $request->price;
-        $product->image_path = $request->image_path;
+        
+        
 
         // ディレクトリ名
         $dir = 'sample';
 
         // アップロードされたファイル名を取得
-        $file_name = $request->file('image_path')->getClientOriginalName();
+
+       if($request->file('image_path')!==NULL){
+            $file_name = $request->file('image_path')->getClientOriginalName();
+            $request->file('image_path')->storeAs('public/' . $dir, $file_name);
+            $product->name = $request->name;
+            $product->text = $request->text;
+            $product->price = $request->price;
+            $product->image_path = 'storage/' . $dir . '/' . $file_name;
+            $product->save();
+        }
 
         // 取得したファイル名で保存
-        $request->file('image_path')->storeAs('public/' . $dir, $file_name);
-        
-        // ファイル情報をDBに保存
         $product->name = $request->name;
-        $product->image_path = 'storage/' . $dir . '/' . $file_name;
+        $product->text = $request->text;
+        $product->price = $request->price;
         $product->save();
+
+        // ファイル情報をDBに保存
         
         
         
@@ -134,23 +141,24 @@ class ProductController extends Controller
     {
         
         $product = Product::find($id);
-        $product->text = $request->text;
-        $product->price = $request->price;
-       
-
-        // ディレクトリ名
         $dir = 'sample';
-
-        // アップロードされたファイル名を取得
-        $file_name = $request->file('image_path')->getClientOriginalName();
+        if($request->file('image_path')!==NULL){
+            $file_name = $request->file('image_path')->getClientOriginalName();
+            $request->file('image_path')->storeAs('public/' . $dir, $file_name);
+            $product->name = $request->name;
+            $product->text = $request->text;
+            $product->price = $request->price;
+            $product->image_path = 'storage/' . $dir . '/' . $file_name;
+            $product->save();
+        }
 
         // 取得したファイル名で保存
-        $request->file('image_path')->storeAs('public/' . $dir, $file_name);
-        
-        // ファイル情報をDBに保存
         $product->name = $request->name;
-        $product->image_path = 'storage/' . $dir . '/' . $file_name;
+        $product->text = $request->text;
+        $product->price = $request->price;
         $product->save();
+    
+        
 
         return redirect('/');     
     }

@@ -38,11 +38,25 @@ class HomeController extends Controller
           $query->where('name', 'like', '%'.$value.'%')->orWhere('price', 'like', '%'.$value.'%');            
           }
           }
-          $posts = $query->get();
+          $min = $request->min;
+          $max = $request->max;
+          
+          if(!empty($min)&&!empty($max)){
+           
+              $query = Product::whereBetween('price',[$min,$max]);
+            }
+            
+            $n_price = [5000,10000,50000];
+            $m_price = [10000,50000,100000];
+            $posts = $query->get();
            return view('home', [
            'posts' => $posts,
            'keyword' => $keyword,
            'products' => $products,
+           'min' => $min,
+            'max' => $max,
+            'max_prices' => $m_price,
+            'min_prices' => $n_price,
           ]);
           
           

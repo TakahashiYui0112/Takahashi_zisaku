@@ -73,6 +73,7 @@
                             </li>
                             @can ('admin_only')                           
                             @elsecan ('user_only')
+                            
                             <div>
                             <form action="{{ route('home')}}" method="GET">
                                 <input type="text" name="keyword" >
